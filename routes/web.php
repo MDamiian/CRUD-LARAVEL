@@ -25,6 +25,6 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-Route::resource('computers', 'ComputerController');
+Route::resource('computers', ComputerController::class);
 
 require __DIR__ . '/auth.php';

@@ -1,6 +1,4 @@
-@extends('layouts.base')
 
-@section('content')
 <div>
     <div>
         <div>
@@ -47,4 +45,3 @@
         </table>
     </div>
 </div>
-@endsection
