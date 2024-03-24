@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-<h1>Dashboard</h1>
+
 @stop
 
 @section('content')
@@ -11,9 +11,6 @@
     <div class="row">
         <div class="col">
             <h2>Agregar computadora</h2>
-        </div>
-        <div class="col">
-            <a href="{{ route('computers.index') }}" class="btn btn-primary">Volver</a>
         </div>
     </div>
 
@@ -46,7 +43,10 @@
                 <label for="descripcion"><strong>Descripción:</strong></label>
                 <textarea name="descripcion" class="form-control" style="height: 150px;" placeholder="Descripción" id="descripcion"></textarea>
             </div>
-            <button type="submit" class="btn btn-success">Agregar</button>
+            <div class="col">
+                <button type="submit" class="btn btn-success">Agregar</button>
+                <a href="{{ route('computers.index') }}" class="btn btn-primary">Volver</a>
+            </div>
         </div>
     </form>
     </div>

@@ -3,13 +3,14 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-<h1>Dashboard</h1>
+
 @stop
 
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col">
+            <br>
             <a href="{{ route('computers.create') }}" class="btn btn-primary">Añadir computadora</a>
         </div>
     </div>
