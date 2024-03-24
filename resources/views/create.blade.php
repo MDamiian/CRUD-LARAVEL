@@ -3,11 +3,10 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-
 @stop
 
 @section('content')
-<<div class="container">
+<div class="container">
     <div class="row">
         <div class="col">
             <h2>Agregar computadora</h2>
@@ -24,20 +23,20 @@
     </div>
     @endif
 
-    <form action="{{ route('computers.store') }}" method="POST">
+    <form id="addComputerForm" action="{{ route('computers.store') }}" method="POST">
         @csrf
         <div class="mt-4">
             <div class="form-group">
                 <label for="marca"><strong>Marca:</strong></label>
-                <input type="text" name="marca" class="form-control" placeholder="Marca" id="marca">
+                <input type="text" name="marca" class="form-control" placeholder="Marca" id="marca" required>
             </div>
             <div class="form-group">
                 <label for="modelo"><strong>Modelo:</strong></label>
-                <input type="text" name="modelo" class="form-control" placeholder="Modelo" id="modelo">
+                <input type="text" name="modelo" class="form-control" placeholder="Modelo" id="modelo" required>
             </div>
             <div class="form-group">
                 <label for="serial"><strong>Serial:</strong></label>
-                <input type="text" name="serial" class="form-control" placeholder="Serial" id="serial">
+                <input type="text" name="serial" class="form-control" placeholder="Serial" id="serial" required>
             </div>
             <div class="form-group">
                 <label for="descripcion"><strong>Descripción:</strong></label>
@@ -49,15 +48,25 @@
             </div>
         </div>
     </form>
-    </div>
+</div>
+@stop
 
-    @stop
+@section('css')
+{{-- Add here extra stylesheets --}}
+{{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+@stop
 
-    @section('css')
-    {{-- Add here extra stylesheets --}}
-    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
-    @stop
+@section('js')
+<script>
+    document.getElementById('addComputerForm').addEventListener('submit', function(event) {
+        var marca = document.getElementById('marca').value;
+        var modelo = document.getElementById('modelo').value;
+        var serial = document.getElementById('serial').value;
 
-    @section('js')
-
-    @stop
+        if (!marca || !modelo || !serial) {
+            event.preventDefault(); // Prevent form from submitting
+            alert('Por favor, completa los campos de marca, modelo y serial.');
+        }
+    });
+</script>
+@stop
